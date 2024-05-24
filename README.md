@@ -23,7 +23,6 @@ To run container, what should I install ?
     * Container is a package of your application.
     * Docker is a container run-time to run the containers on linux machine. 
 
-# docker notes
 
 ### Docker is a container run time.
 ```
@@ -58,6 +57,8 @@ $ docker pull imageName              ( pulls the docker image from the image rep
 $ docker push imageName              ( pushes the docker image to the image repository )
 $ docker stop                        ( To stop the container which is running ) 
 $ docker exec -it containerName bash ( To enter in to the container )
+$ docker run -d containerName   
+$ docker run -d  -p 80:80 containerName 
 ```
 
 ### How a docker container looks like ???
@@ -139,7 +140,7 @@ docker tag docker.io/sanraman/cart:v1 imageID
 ```
 
 
-### What are the disadvantages of running Containers on the top of a Docker Run Time ( On a linux machine )
+### What are the disadvantages of running Containers on the top of Docker Run Time ( On a linux machine )
 
 ```
     1) If you lose the Host Machine [ machine running the containers] , you would lose all the containers running on this host.
@@ -173,5 +174,46 @@ docker tag docker.io/sanraman/cart:v1 imageID
 
     2) OpenShift ( RedHat ) is a Container Orchestration Platform for On-Prem
 
-    3) On-Prem Editions For Kubernetes : Rancher, VMWare Tanzua 
+    3) On-Prem Editions For Kubernetes : Rancher, VMWare Tanzua , Openshift
 ```
+
+    Redhat ----> CNCF kubernetes  -----> OpenShift ( Pay ) 
+
+
+### If I want to use kubernetes what should I do ?
+
+    You can set up kubernets cluster in 2 ways : 
+
+        1) Hardway  ( If you're on-prem )
+
+            1) You create servers 
+            2) Install container run-time on all the servers 
+            3) Then install kubelet on all the servers 
+            4) Install CNI Solution and install k8 and mark one of the node as Master 
+        
+        2) Managed Solution ( If you're cloud )
+
+            1) All you do is use the PaS ( AWS : EKS  ,  GCP : GKE )
+
+
+# What all components did we learn so far in kubernetes ?
+
+    1) Master Node 
+    2) Worker Node 
+    3) Control Pane Conponents
+    4) Data Pane Conponents
+    5) Kubelet 
+    6) kuebctl 
+    7) kubeapi-server 
+    8) etcd 
+    9) scheduler 
+    10) Controller Manager 
+
+
+### When to have a cluster with multiple master vs a single master ?
+
+### In training, how to create the cluster ?
+
+    1) On Jenkins, run the TF Network Jobs ( This creates the network )
+    2) On your ws, clone the kubernetes repo and cd kubernetes/eks/
+    3) sudo make create
