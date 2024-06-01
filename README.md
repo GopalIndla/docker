@@ -217,3 +217,6 @@ docker tag docker.io/sanraman/cart:v1 imageID
     1) On Jenkins, run the TF Network Jobs ( This creates the network )
     2) On your ws, clone the kubernetes repo and cd kubernetes/eks/
     3) sudo make create
+
+<!-- Containerization Reference : -->
+    `https://docs.docker.com/reference/dockerfile/`
